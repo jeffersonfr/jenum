@@ -4,7 +4,12 @@ if (CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
   message(FATAL_ERROR "In-source build is not allowed")
 endif()
 
-project (jenum LANGUAGES CXX VERSION 0.0.1)
+project(jenum
+  LANGUAGES CXX
+  HOMEPAGE_URL https://github.com/jeffersonfr/jenum
+  DESCRIPTION "A enum class's utility"
+  VERSION 1.0.0
+)
 
 option(TESTS "Enable unit tests" OFF)
 option(CHECKER "Enable static code analysing" OFF)
@@ -43,7 +48,7 @@ configure_file(
 
 install(DIRECTORY include/${CMAKE_PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
 
-# generate jenum.pc
-configure_file(${PROJECT_SOURCE_DIR}/jenum.pc.in ${PROJECT_BINARY_DIR}/jenum.pc.gen @ONLY)
-file(GENERATE OUTPUT ${CMAKE_BINARY_DIR}/jenum.pc INPUT "${CMAKE_BINARY_DIR}/jenum.pc.gen")
+# generate pc file
+configure_file(jenum.pc.in jenum.pc @ONLY)
+
 install(FILES ${CMAKE_BINARY_DIR}/jenum.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig)
