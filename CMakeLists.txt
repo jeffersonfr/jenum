@@ -11,13 +11,13 @@ project(jenum
   VERSION 1.0.0
 )
 
-option(TESTS "Enable unit tests" OFF)
-option(CHECKER "Enable static code analysing" OFF)
+option(JENUM_TESTS "Enable unit tests" OFF)
+option(JENUM_CHECKER "Enable static code analysing" OFF)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-if (CHECKER)
+if (JENUM_CHECKER)
    set(CMAKE_CXX_CLANG_TIDY clang-tidy -checks=-*,android-*,bugprone-*,clang-analyzer-*,hicpp-*,misc-*,modernize-*,portability-*)
 endif()
 
@@ -36,7 +36,7 @@ target_link_libraries(${PROJECT_NAME}
 
 enable_testing()
 
-if (TESTS)
+if (JENUM_TESTS)
   add_subdirectory(tests)
 endif()
 
