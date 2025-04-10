@@ -51,4 +51,4 @@ install(DIRECTORY include/${CMAKE_PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_PREF
 # generate pc file
 configure_file(jenum.pc.in jenum.pc @ONLY)
 
-install(FILES ${CMAKE_BINARY_DIR}/jenum.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/jenum.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig)
